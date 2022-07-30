@@ -33,7 +33,7 @@ require_once("./header.php");
       </header>
       <div class="search">
         <span class="text selectMessage">Select user to chat</span>
-        <input type="text" placeholder="Enter your friend name" onkeypress="search(this.value)"/>
+        <input type="text" placeholder="Enter your friend name" onkeyup="search(this.value)"/>
         <button><i class="fas fa-search"></i></button>
       </div>
       <div class="users-list" id="friends-list">
@@ -53,8 +53,8 @@ require_once("./header.php");
     </section>
   </div>
 
-  <script src="./js/searchBar.js"></script>
-  <script src="./js/usersList.js"></script>
+  <script src="./js/friends.js"></script>
+  <!-- <script src="./js/usersList.js"></script> -->
   <!-- <script src="./js/userSearch.js"></script> -->
 </body>
 
