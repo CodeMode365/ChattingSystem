@@ -45,8 +45,6 @@ function search(value) {
 
 
 
-
-
 //To load all the list of friends except current user
 setInterval(() => {
   //Ajax

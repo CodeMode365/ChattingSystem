@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Here</title>
+<?php
+session_start();
+if(!isset($_SESSION["unique_id"])){
+  header("location:./login.php");
+}
 
-    <!-- style sheet here  -->
-    <link rel="stylesheet" href="index.css" />
-
-    <!-- font awsome link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  require_once("header.php");
+?>
   </head>
   <body>
     <div class="wrapper">
       <section class="chat-area">
         <header>
-          <a href="#" class="back-button">
+          <?php
+          require_once("./php/config.php");
+          $user_id = mysqli_real_escape_string($conn, $_GET["user_id"]);
+          
+          $user_info = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$user_id}';");
+
+          if(mysqli_num_rows($user_info) > 0){
+            $row =mysqli_fetch_assoc($user_info)
+          ?>
+          <a href="./users.php" class="back-button">
             <i class="fas fa-arrow-left"></i>
           </a>
-          <img src="./profile.jpg" alt="" />
+          <img src="./assets/profiles/<?php echo $row["profile"]?>" alt="" />
           <div class="details">
-            <span>Chatting Pro</span>
-            <p>Active now</p>
+            <span><?php echo ucfirst($row["fname"])." ".ucfirst($row["lname"]); }?></span>
+            <p><?php echo $row["status"];?></p>
           </div>
         </header>
 
 
           <!-- chatting area  -->
-        <div class="chat-box">
+        <div class="chat-box" id="chat-box">
           <div class="chat outgoing">
             <div class="details">
               <p>
@@ -52,133 +50,17 @@
               </p>
             </div>
           </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="./profile.jpg" alt="" />
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet is love consectetur adipisicing elit.
-                Ipsam hic nihil sed obcaecati consequatur doloremque.
-              </p>
-            </div>
-          </div>
-
-
+          
         </div>
         <form action="#" class="typing-area">
-          <input type=" text" placeholder="Type a message ...">
-          <button><i class="fab fa-telegram-plane"></i></button>
+          <input type="text" name="users-id" value="<?php echo $_SESSION['unique_id']; ?>" > 
+          <input type="text" name="friend-id" value="<?php echo $user_id; ?>" > 
+          <input type="text" id="type-box" placeholder="Type a message ...">
+          <button id="send"><i class="fab fa-telegram-plane"></i></button>
         </form>
       </section>
     </div>
+
+    <script src="./js/chat.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
 
 while ($row = mysqli_fetch_assoc($sql)) {
-    if ($_SESSION["unique_id"] != $row["unique_id"]) {
-        $output .= ' <a href="#" class="friend">
+  if ($_SESSION["unique_id"] != $row["unique_id"]) {
+    $output .= ' <a href="chat.php?user_id='.$row['unique_id'].'" class="friend">
       <div class="content">
         <img src="./assets/profiles/' . $row["profile"] . '" alt="" />
         <div class="details">
@@ -12,7 +12,9 @@ while ($row = mysqli_fetch_assoc($sql)) {
       </div>
       <div class="status-dot"><i class="fas fa-circle"></i></div>
     </a>';
-    } else {
-        continue;
-    }
+  } else {
+    continue;
+  }
 }
+
+?>
