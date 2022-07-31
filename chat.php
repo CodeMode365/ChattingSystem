@@ -50,6 +50,22 @@ if(!isset($_SESSION["unique_id"])){
               </p>
             </div>
           </div>
+           <div class="chat outgoing">
+            <div class="details">
+              <p>
+                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
+                elit. Ipsam
+              </p>
+            </div>
+          </div>
+          <div class="chat outgoing">
+            <div class="details">
+              <p>
+                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
+                elit. Ipsam
+              </p>
+            </div>
+          </div>
           
         </div>
         <form action="#" class="typing-area" id="messenger">

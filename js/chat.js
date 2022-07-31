@@ -35,21 +35,21 @@ sendBtn.addEventListener("click", () => {
 
 
 
-//to render the page continuosly for new message
-setInterval(() => {
-  //Ajax
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "./php/renderMessage.php", true);
-  xhr.onload = () => {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      let data = xhr.response;
-      chat.innerHTML =data;
+// //to render the page continuosly for new message
+// setInterval(() => {
+//   //Ajax
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("POST", "./php/renderMessage.php", true);
+//   xhr.onload = () => {
+//     if (xhr.readyState == 4 && xhr.status == 200) {
+//       let data = xhr.response;
+//       chat.innerHTML =data;
 
 
-    }
-  };
-  //creating object for form data and passing through Ajax
-  let formData = new FormData(form);
-  xhr.send(formData);
-}, 500);
+//     }
+//   };
+//   //creating object for form data and passing through Ajax
+//   let formData = new FormData(form);
+//   xhr.send(formData);
+// }, 500);
 

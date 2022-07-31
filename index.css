@@ -321,7 +321,7 @@ i.fas.fa-eye.active::before{
 .chat-box .outgoing p {
   padding: 8px 8px;
   word-wrap: break-word;
-  /* text-align: justify; */
+  margin-top: 10px;
 }
 .chat-box .outgoing {
   display: flex;
