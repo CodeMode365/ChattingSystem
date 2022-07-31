@@ -3,13 +3,14 @@ const sendBtn = TypingArea.querySelector("#send");
 const TypeBox = document.getElementById("type-box");
 const chatBox = document.getElementById("chat-box");
 
+form.onsubmit =(e)=>{
+  e.preventDefault(); //preventing default feature of the form submission
+}
+
 sendBtn.onclick = () => {
 
-//     console.log("hello")
-//  var message = TypeBox.value();
 
-//   setInterval(() => {
-
+  //sending message though AJax
 
     //Create XHR object
     const xhr = new XMLHttpRequest();
@@ -21,7 +22,7 @@ sendBtn.onclick = () => {
       console.log(data);
 
       TypeBox.value = "";
-      chatBox.insertAdjacentHTML("beforeend", data); 
+      // chatBox.insertAdjacentHTML("beforeend", data); 
 
         }
     };
@@ -33,8 +34,6 @@ sendBtn.onclick = () => {
     let formData = new FormData(form);
     xhr.send(formData);
 
-
-//   }, 500)
 
 
 };
