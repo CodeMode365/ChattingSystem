@@ -52,10 +52,10 @@ if(!isset($_SESSION["unique_id"])){
           </div>
           
         </div>
-        <form action="#" class="typing-area">
-          <input type="text" name="users-id" value="<?php echo $_SESSION['unique_id']; ?>" hidden> 
-          <input type="text" name="friend-id" value="<?php echo $user_id; ?>" hidden > 
-          <input type="text" id="type-box" name="message" placeholder="Type a message ...">
+        <form action="#" class="typing-area" id="messenger">
+          <input type="text" name="user_id" value="<?php echo $row['unique_id']; ?>" hidden > 
+          <input type="text" name="sender_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden> 
+          <input type="text" id="message" name="message" placeholder="Type a message ...">
           <button id="send"><i class="fab fa-telegram-plane"></i></button>
         </form>
       </section>
