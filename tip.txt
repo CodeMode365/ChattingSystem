@@ -1,0 +1,6 @@
+if server doesn't refresh new commits
+In php.ini file
+-->opcache.enable=0
+-->opcache.revalidate_freq=0
+
+check other opcache instructions also if above method doesn't works

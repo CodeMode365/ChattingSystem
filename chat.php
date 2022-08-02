@@ -33,7 +33,9 @@ if(!isset($_SESSION["unique_id"])){
 
           <!-- chatting area  -->
         <div class="chat-box" id="chat-box">
-          <div class="chat outgoing">
+
+          <!-- message here  -->
+          <!-- <div class="chat outgoing">
             <div class="details">
               <p>
                 Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
@@ -49,24 +51,8 @@ if(!isset($_SESSION["unique_id"])){
                 hic nihil sed obcaecati consequatur doloremque.
               </p>
             </div>
-          </div>
-           <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>
-                Lorem ipsum dolor sit amet lorem500 consectetur adipisicing
-                elit. Ipsam
-              </p>
-            </div>
-          </div>
-          
+          </div> -->
+      
         </div>
         <form action="#" class="typing-area" id="messenger">
           <input type="text" name="user_id" value="<?php echo $row['unique_id']; ?>" hidden > 

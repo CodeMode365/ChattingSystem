@@ -7,9 +7,21 @@ form.onsubmit = (e) => {
   e.preventDefault(); //preventing default feature of the form submission
 };
 
+//Put default scroll bar to bottom if there are alot message
+function scrollToBottom() {
+  chat.scrollTop = chat.scrollHeight;
+  console.log("Scrolled");
+}
+
+chat.onmouseenter =()=>{
+  chat.classList.add("active");
+}
+chat.onmouseleave=()=>{
+  chat.classList.remove("active");
+}
 
 sendBtn.addEventListener("click", () => {
-  console.log("clicked")
+  console.log("clicked");
 
   //sending message though AJax
 
@@ -22,6 +34,8 @@ sendBtn.addEventListener("click", () => {
     if (xhr.status === 200 && xhr.readyState === 4) {
       const data = xhr.response;
       message.value = ""; //lear the message box when it is sent
+      scrollToBottom();
+
 
       // chatBox.insertAdjacentHTML("beforeend", data);
     }
@@ -33,23 +47,24 @@ sendBtn.addEventListener("click", () => {
   xhr.send(formData);
 });
 
-
-
-// //to render the page continuosly for new message
-// setInterval(() => {
-//   //Ajax
-//   let xhr = new XMLHttpRequest();
-//   xhr.open("POST", "./php/renderMessage.php", true);
-//   xhr.onload = () => {
-//     if (xhr.readyState == 4 && xhr.status == 200) {
-//       let data = xhr.response;
-//       chat.innerHTML =data;
-
-
-//     }
-//   };
-//   //creating object for form data and passing through Ajax
-//   let formData = new FormData(form);
-//   xhr.send(formData);
-// }, 500);
+//to render the page continuosly for new message
+setInterval(() => {
+  //Ajax
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "./php/renderMessage.php", true);
+  xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let data = xhr.response;
+      if(!chat.classList.contains("active")){//if chatbox isn't active scroll to bottom
+        scrollToBottom();
+      }
+      scrollToBottom();
+      chat.innerHTML = data;
+      // scrollToBottom();
+    }
+  };
+  //creating object for form data and passing through Ajax
+  let formData = new FormData(form);
+  xhr.send(formData);
+}, 500);
 

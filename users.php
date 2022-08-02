@@ -29,7 +29,7 @@ require_once("./header.php");
             <p style="font-size: 0.9rem;"><?php  echo ucfirst($data["status"]); ?></p>
           </div>
         </div>
-        <a href="./php/logout.php" class="logout">Logout</a>
+        <a href="./php/logout.php?logout_id=<?php echo $data["unique_id"];?>" class="logout">Logout</a>
       </header>
       <div class="search">
         <span class="text selectMessage">Select user to chat</span>

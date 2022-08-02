@@ -3,6 +3,7 @@ session_start();
 
 require_once("config.php");
 $search = mysqli_real_escape_string($conn, $_POST['Search']) ;
+$sender_id = $_SESSION["unique_id"];
 
 $output=" ";
 
