@@ -10,14 +10,15 @@ form.onsubmit = (e) => {
 //Put default scroll bar to bottom if there are alot message
 function scrollToBottom() {
   chat.scrollTop = chat.scrollHeight;
-  console.log("Scrolled");
 }
 
 chat.onmouseenter =()=>{
   chat.classList.add("active");
+  console.log("active")
 }
 chat.onmouseleave=()=>{
-  chat.classList.remove("active");
+  console.log("active")
+  chat.classList.remove("not active");
 }
 
 sendBtn.addEventListener("click", () => {
@@ -56,9 +57,9 @@ setInterval(() => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       let data = xhr.response;
       if(!chat.classList.contains("active")){//if chatbox isn't active scroll to bottom
-        scrollToBottom();
+        // scrollToBottom();
       }
-      scrollToBottom();
+      // scrollToBottom();
       chat.innerHTML = data;
       // scrollToBottom();
     }

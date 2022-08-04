@@ -2,6 +2,7 @@
     session_start();
     require_once("./config.php");
     $sender_id = $_SESSION["unique_id"];
+    
     $sql    = mysqli_query($conn, "SELECT * from users");
     $output = "";
     

@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_assoc($sql)) {
         <img src="./assets/profiles/' . $row["profile"] . '" alt="" />
         <div class="details">
           <span>' . ucfirst($row["fname"]) . " " . ucfirst($row["lname"]) . '</span>
-          <p>' . $you.$msg . '</p>
+          <p>' .$you.$msg . '</p>
         </div>
       </div>
       <div class="status-dot '.$offline.'" ><i class="fas fa-circle"></i></div>
